@@ -28,4 +28,36 @@ networks:
     ollama-docker:
         driver: bridge
     ```
+## ⚠️ Versão para PCs com placa de video:
+```bash
+version: '3'
+services:
+  ollama:
+
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    volumes:
+      - ./:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: always
+    deploy:
+            resources:
+                reservations:
+                    devices:
+                      - driver: nvidia
+                        count: 1
+                        capabilities: [gpu]
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0
+    networks:
+      - ollama-docker
+
+
+networks:
+    ollama-docker:
+        driver: bridge
 
