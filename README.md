@@ -4,7 +4,7 @@ Este repositorio tem por finalidade compartilhar a configuração do docker-comp
 
 ## ⚠️ Versão para PCs sem placa de video: 
 ```
-version: '3'
+version: '3.8'
 services:
   ollama:
 
@@ -30,7 +30,7 @@ networks:
 ```
 ## ⚠️ Versão para PCs com placa de video:
 ```
-version: '3'
+version: '3.8'
 services:
   ollama:
 
